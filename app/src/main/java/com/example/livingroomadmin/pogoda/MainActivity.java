@@ -3,6 +3,7 @@ package com.example.livingroomadmin.pogoda;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,10 +41,11 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         Call<main> call = initf.Read();
+        TextView txt = (TextView)findViewById(R.id.txt);
 
         try {
             retrofit2.Response<main> response = call.execute();
-            Map<String,String> map = gson.fromJson(response.body().toString(),Map.class);
+            txt.setText(response.body().get());
 /*
             for (Map.Entry e: map.entrySet()){
                 System.out.println(e.getKey() + " " + e.getValue());

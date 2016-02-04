@@ -5,9 +5,9 @@ import com.google.gson.internal.LinkedTreeMap;
 
 public class main {
     private String base;
-    private LinkedTreeMap <String, float> main;
+    private LinkedTreeMap <String, String> main;
 
-    public main (String base, LinkedTreeMap main) {
+    public main (String base, LinkedTreeMap<String, String> main) {
         super();
 
         this.main = main;
@@ -15,6 +15,8 @@ public class main {
     }
 
    public String get () {
-       return this.base;
+
+       return this.main.get("temp");
+
    }
 }
